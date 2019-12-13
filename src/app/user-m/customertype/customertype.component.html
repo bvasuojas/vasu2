@@ -1,0 +1,87 @@
+
+<div  class="col-12  pt-4">
+ 
+
+
+  <nav class="navbar navbar-light  shadow p-3 mb-5 bg-white rounded ">
+         <h4  style="color:black;">CUSTOMER TYPE</h4>
+          <form class="form-inline">
+            <button class=" btn my-2 my-sm-0" mat-fab color="primary" (click)="fn()" ><i class="material-icons">
+                          add
+                          </i>Add</button>
+          </form>
+        </nav>
+
+
+
+<div class="shadow p-3 mb-5 bg-white rounded" style="margin-top: -25px;">
+
+
+  <input type="text" class="float-right" placeholder="Search" [(ngModel)]="segre">
+
+<div class="table-responsive">
+<table class="table table-bordered table-sm">
+  <thead class="thead">
+      <tr style="background-color: #48466d; color: whitesmoke; ">
+          <th>Custmer Type</th>
+          <th>Amount</th>
+          <th>Commission Rate</th>
+          <th>Edit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let c of tabledata | filter:segre | paginate: { itemsPerPage: 4, currentPage: p } ">
+          <td>{{c.customerType}}</td>
+          <td>{{c.dropdown1}}&nbsp;{{c.amount}}&nbsp;{{c.dropdown2}}</td>
+          <td>{{c.commissionRate}}</td>
+          <td>
+              <button class="bg-info" data-toggle="modal" data-target="#exampleModal" (click)="modelmethod(c)"><i
+                      class="material-icons">edit</i></button>
+
+          </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="pb-5">
+<pagination-controls  (pageChange)="p = $event" style="float:right"></pagination-controls>
+</div>
+
+</div>
+
+
+
+
+<!--Model Body-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" Style="text-align:right">Update Amount</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <form>
+          <div class="modal-body">
+              <b>Enter Amount </b> <input class="form-control" name="amount" [(ngModel)]="amount">
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal"
+                  (click)="uppit(amount)">UPDATE</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+          </div>
+      </form>
+  </div>
+</div>
+</div>
+
+
+
+
+
+</div>

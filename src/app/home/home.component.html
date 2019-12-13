@@ -1,0 +1,197 @@
+
+
+ <app-navbar></app-navbar>
+
+
+<div class="col-10  mx-auto shadow-sm p-3  bg-white rounded-0"> 
+ 
+     
+         
+        <div class="klw bg-white"   style="margin-top: 60px; margin-bottom:50px;">
+         
+        <div class="wrapper">
+            <div class="sidebar   scrollbar  " style="margin-left:-15px;  padding-bottom: 100px;">
+                
+                <ul class="foo">
+                    <li>   <a  class=" a" routerLink="dashboard"  routerLinkActive="active"    >
+                                <i   class="fas fa-tachometer-alt"></i>&nbsp;Dashboard</a></li> 
+         
+                           <li> <a  class="a" routerLink="users"  routerLinkActive="active"   >
+                                  <i   class="fas fa-users"></i>&nbsp;&nbsp;Users</a> </li>  
+         
+                        <li>    <a   class="a" routerLink="skills"  routerLinkActive="active"  >
+                                  <i  class="fas fa-sliders-h"></i>&nbsp;&nbsp;Skills</a> </li> 
+                                  <li>  <a  class="a" routerLink="moi"  routerLinkActive="active"  >
+                                        <i  class="fas fa-phone-volume"></i>&nbsp;Mode of Interview</a> </li> 
+                 
+                                  <li>    <a  class="a" routerLink="customer"  routerLinkActive="active"  >
+                                          <i  class="fas fa-user"></i>&nbsp;&nbsp;Customer Type</a> </li>
+                 
+                                 <li>   <a   class="a"  routerLink="notice"  routerLinkActive="active"   >
+                                          <i   class="far fa-clock"></i>&nbsp;&nbsp;Notice Period</a> </li>  
+                 
+                                   <li>   <a  class="a" routerLink="qualification"  routerLinkActive="active" >
+                                          <i   class="fas fa-book"></i>&nbsp;&nbsp;Qualification</a> </li>
+                 
+                                     <li> <a  class="a" routerLink="certificates"  routerLinkActive="active" >
+                                          <i   class="fas fa-certificate"></i>&nbsp;&nbsp;Certificates</a> </li>
+                 
+                                   <li>  <a  class="a"  routerLink="bill"  routerLinkActive="active"  >
+                                          <i   class="fas fa-money-bill-alt"></i>&nbsp;&nbsp;Billing Model</a> </li> 
+                 
+                                   <li>  <a   class = "a"  routerLink="service"  routerLinkActive="active"  >
+                                          <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;Services</a> </li> 
+                 
+                                   <li>  <a class="a" routerLink="payment"  routerLinkActive="active"  >
+                                          <i class="fas fa-credit-card"></i>&nbsp;&nbsp;Payment Terms</a> </li> 
+                 
+                                    <li><a class="a" routerLink="roles" routerLinkActive="active"  >
+                                          <i   class="fas fa-credit-card"></i>&nbsp;&nbsp;Roles</a> </li>  
+                 
+                                  <li><a class="a"  routerLink="job"  routerLinkActive="active"  >
+                                          <i   class="fa fa-map-marker"></i>&nbsp;&nbsp;Job Locations</a> </li>
+                 
+                                       
+                        </ul> 
+                    
+                    </div>
+                 
+                 
+                       
+                    <div class="main_content">
+                        
+
+                        <div class="info">
+                               
+                 
+                                <router-outlet></router-outlet>
+                                
+                        
+                        </div>
+                    </div>
+                     
+                 
+                 
+                </div>
+                 
+                </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<div class="col-12 bg-light"style="margin-left:-15px;">
+    <app-navbar></app-navbar>
+</div>
+
+
+<body class="bg-light">
+  <div class="row" >
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" style="margin-left:-15px;" >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                 <div class="navbar-toggler-icon"></div> 
+            </button> 
+            
+        
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1" >
+                <div class="tab">
+                    <button routerLink="dashboard"  routerLinkActive="active"  style="color: black" class="btn btn-primary ">
+                        <i  style="color:aliceblue;" class="fas fa-tachometer-alt"></i>&nbsp;Dashboard</button>
+                      <button routerLink="users"  routerLinkActive="active" style="color: black" class="btn btn-primary  ">
+                          <i  style="color:aliceblue;" class="fas fa-users"></i>&nbsp;&nbsp;Users</button>
+                      <button  routerLink="skills"  routerLinkActive="active" style="color: black" class="btn btn-primary  ">
+                          <i style="color:aliceblue;" class="fas fa-sliders-h"></i>&nbsp;&nbsp;Skills</button>
+                      <button routerLink="moi"  routerLinkActive="active" style="color: black" class="btn btn-primary">
+                        <i style="color:aliceblue;" class="fas fa-phone-volume"></i>&nbsp;Mode of Interview</button>
+                      <button  routerLinkActive="active" style="color: black" class="btn btn-primary  " >
+                          <i  style="color:aliceblue;" class="fas fa-users"></i>&nbsp;&nbsp;Invoice</button>
+                      <button routerLink="customer"  routerLinkActive="active" style="color: black" class="btn btn-primary  ">
+                          <i  style="color:aliceblue;" class="fas fa-user"></i>&nbsp;&nbsp;Customer Type</button>
+                      <button routerLink="notice"  routerLinkActive="active" style="color: black" class="btn btn-primary ">
+                          <i  style="color:aliceblue;" class="far fa-clock"></i>&nbsp;&nbsp;Notice Period</button>
+                      <button routerLink="qualification"  routerLinkActive="active" style="color: black" class="btn btn-primary  ">
+                          <i  style="color:aliceblue;" class="fas fa-book"></i>&nbsp;&nbsp;Qualification</button>
+                      <button routerLink="certificates"  routerLinkActive="active" style="color: black" class="btn btn-primary ">
+                          <i  style="color:aliceblue;" class="fas fa-certificate"></i>&nbsp;&nbsp;Certificates</button>
+                      <button routerLink="bill"  routerLinkActive="active" style="color: black" class="btn btn-primary  ">
+                          <i  style="color:aliceblue;" class="fas fa-money-bill-alt"></i>&nbsp;&nbsp;Billing Model</button>
+                      <button routerLink="service"  routerLinkActive="active" style="color: black" class="btn btn-primary  ">
+                          <i  style="color:aliceblue;" class="fas fa-thumbs-up"></i>&nbsp;&nbsp;Services</button>
+                      <button routerLink="payment"  routerLinkActive="active" style="color: black" class="btn btn-primary  ">
+                          <i  style="color:aliceblue;" class="fas fa-credit-card"></i>&nbsp;&nbsp;Payment Terms</button>
+                      <button   routerLink="roles" routerLinkActive="active" style="color: black" class="btn btn-primary ">
+                          <i  style="color:aliceblue;" class="fas fa-credit-card"></i>&nbsp;&nbsp;Roles</button>
+                      <button routerLink="job"  routerLinkActive="active" style="color: black" class="btn btn-primary">
+                          <i  style="color:aliceblue;" class="fa fa-map-marker"></i>&nbsp;&nbsp;Job Locations</button>
+                  </div> 
+               </div>
+        </nav>
+    </div>
+
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 bg-light" style="margin-left: -15px;" >
+    
+<button mat-raised-button color="accent">Click Me</button> 
+      <router-outlet></router-outlet>
+    </div>
+  
+</div>
+</body> -->
+ <!-- <div   style="background-color: #4b4276;" >  <h1 style="color: #4b4276;"> o</h1></div> -->
+

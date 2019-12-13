@@ -1,0 +1,216 @@
+
+ <div  class="col-12  pt-4" style="margin-left: -30px;" >
+    
+  
+
+        <nav class="navbar navbar-light shadow p-3 mb-5 bg-white rounded">
+               <h4 style="color:black;">Dashboard</h4>
+                
+              </nav>
+   
+
+
+
+ <div class="shadow p-3 mb-5 bg-white rounded" style="margin-top: -29px;">
+
+    <main class="row" style="padding-bottom:20px; margin-top: 15px;">
+        <!-- <div class="col-md-3 col-xs-12" >
+            <section class="card shadow" style="padding: 15px;">
+                <h5>Earnings (Monthly)</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div> -->
+        <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+        <!-- <section class="card shadow" style="padding: 15px;"> -->
+            <!-- <div class="row no-gutters align-items-center"> -->
+                <div class="col-mr-2">
+                        <div class="h6 text-primary text-uppercase">Earnings (Monthly)</div>
+            <!-- <h5>Earnings (Monthly) -->
+                <div class="float-right" style="font-size: 25px">
+                    <i class="far fa-credit-card" style="color:gray"></i>
+                </div>
+            <!-- </h5> -->
+            <h6>$40,000</h6>
+            <!-- </div> -->
+            </div>
+            </div>
+            </div>
+        
+        <!-- </section> -->
+    </div>
+        <!-- <div class="col-md-3 col-xs-12" >
+            <section class="card shadow" style="padding: 15px;">
+                <h5>Earnings (Annual)</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div> -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+    <!-- <section class="card shadow" style="padding: 15px;"> -->
+        <!-- <div class="row no-gutters align-items-center"> -->
+            <div class="col-mr-2">
+                    <div class="h6 text-primary text-uppercase">Earnings (Monthly)</div>
+        <!-- <h5>Earnings (Monthly) -->
+            <div class="float-right" style="font-size: 25px">
+                <i class="far fa-credit-card" style="color:gray"></i>
+            </div>
+        <!-- </h5> -->
+        <h6>$40,000</h6>
+        <!-- </div> -->
+        </div>
+        </div>
+        </div>
+    
+    <!-- </section> -->
+</div>
+
+        <div class="col-md-3 col-xs-12" >
+            <section class="card shadow" style="padding: 15px;">
+                <h5>Earnings (Annual)</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div>
+        <div class="col-md-3 col-xs-12" >
+            <section class="card shadow" style="padding: 15px;">
+                <h5>pending request</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div>
+
+    </main>
+    <main class="row">
+        <div class="col-md-3 col-xs-12" >
+            <section class="card shadow" style="padding: 15px;">
+                <h5>pending request</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div>
+        <div class="col-md-3 col-xs-12">
+            <section class="card shadow" style="padding: 15px;">
+                <h5>pending request</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div>
+        <div class="col-md-3 col-xs-12" >
+            <section class="card shadow" style="padding: 15px;">
+                <h5>pending request</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div>
+        <div class="col-md-3 col-xs-12" >
+            <section class="card shadow" style="padding: 15px;">
+                <h5>pending request</h5>
+                <h4>$40,000</h4>
+            </section>
+        </div>
+    </main>
+
+
+
+    <br>
+    <div class="row">
+        <section class="col-md-6 col-xs-12 col-sm-6 col-xl-6 col-12">
+            <h3>Line chart</h3>
+            <div style="display: block;">
+                <canvas baseChart width="200" height="100" [datasets]="lineChartData" [labels]="lineChartLabels"
+                    [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                    [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                </canvas>
+            </div>
+        </section>
+        <section class="col-md-6 col-xs-12 col-sm-6 col-xl-6 col-12">
+            <h3>Bar chart</h3>
+            <div style="display: block;">
+                <canvas baseChart width="200" height="100" [datasets]="barChartData" [labels]="barChartLabels"
+                    [options]="barChartOptions" [plugins]="barChartPlugins" [colors]="barChartColors"
+                    [legend]="barChartLegend" [chartType]="barChartType">
+                </canvas>
+            </div>
+
+        </section>
+
+    </div>
+
+    <br>
+
+
+
+
+<div class="row">
+
+    <section class="col-md-6 col-xs-12 col-sm-6 col-xl-6 col-12">
+            <h3>Radar chart</h3>
+            <div style="display: block;">
+                    <canvas baseChart  width="300" height="200"
+                    [datasets]="radarChartData"
+                    [options]="radarChartOptions"
+                    [labels]="radarChartLabels"
+                    [chartType]="radarChartType">
+                  </canvas>
+                </div>
+    </section>
+    <section class="col-md-6 col-xs-12 col-sm-6 col-xl-6 col-12">
+            <h3>Polar chart</h3>
+           
+                   
+                      <div style="display: block">
+                        <canvas baseChart width="300" height="200"
+                          [data]="polarAreaChartData"
+                          [labels]="polarAreaChartLabels"
+                          [legend]="polarAreaLegend"
+                          [chartType]="polarAreaChartType">
+                        </canvas>
+                      </div>
+                   
+        </section>
+
+</div>
+
+<br>
+
+    <div class="row">
+           
+
+
+        <section class="col-md-6 col-xs-12 col-sm-6 col-xl-6 col-12">
+            <h3>Pie chart</h3>
+            <div style="display: block;">
+                <canvas baseChart width="250" height="150" [data]="pieChartData" [labels]="pieChartLabels"
+                    [chartType]="pieChartType" [options]="pieChartOptions" [plugins]="pieChartPlugins"
+                    [legend]="pieChartLegend">
+                </canvas>
+            </div>
+        </section>
+        <section class="col-md-6 col-xs-12 col-sm-6 col-xl-6 col-12">
+            <h3>Doughnut chart</h3>
+            <div style="display: block;">
+                <canvas baseChart width="250" height="150" [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType">
+                </canvas>
+             
+            </div>
+            
+
+        </section>
+
+    </div>
+  
+
+</div>
+
+
+
+</div>
+
+
+    <div class=" sticky-footer  foot text-center  text-white  rounded ">
+        <br>
+
+        <h5>Ojas Innovative Technologies</h5>
+  </div>
+
+
+      

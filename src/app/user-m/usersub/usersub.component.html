@@ -1,0 +1,171 @@
+<div class="container-fluid" style="background:  WhiteSmoke">
+    <h1>User/Add User</h1>
+    </div>
+    
+    <br>
+    
+    <form #formval="ngForm"  (ngSubmit)="click(formval.value)">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4">
+                        <label>FirstName*</label><br>
+                        <input placeholder="Enter First Name" [(ngModel)]="fsname" #fname="ngModel" name="firstName" class="form-control" required>
+                        <div *ngIf="formval.invalid && fname.touched">
+                                <div *ngIf="fname.errors.required" style="color: red">This field is required</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>LastName*</label><br>
+                        <input placeholder="Enter Last Name" [(ngModel)]="lsname" #lname="ngModel" name="lastName" class="form-control" required>
+                        <div *ngIf="formval.invalid && lname.touched">
+                                <div *ngIf="lname.errors.required" style="color: red">This field is required</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Email*</label><br>
+                        <input placeholder="Enter Email" [(ngModel)]="email" #em="ngModel" name="email" class="form-control" email required>
+                        <div *ngIf="formval.invalid && em.touched">
+                                <div *ngIf="em.errors.required" style="color: red">This field is required</div>
+                                <div *ngIf="em.errors.email" style="color: red">Email should be valid</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>Mobile Number*</label><br>
+                        <input placeholder="Enter Contact Number" type="phone" [(ngModel)]="mnumber" #cn="ngModel" name="contactNumber" class="form-control" required pattern="[0-9]*">
+                        <div *ngIf="formval.invalid && cn.touched">
+                                <!-- <div *ngIf="cn.errors.required" style="color: red">This field is required</div> -->
+                                <div *ngIf="cn.errors.pattern" style="color: red">Only number</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Extension Number*</label><br>
+                        <input placeholder="Enter Contact Number" #ex="ngModel" [(ngModel)]="enumber" name="extension"class="form-control" pattern="[0-9]*" required>
+                        <div *ngIf="formval.invalid && ex.touched">
+                                <!-- <div *ngIf="cn.errors.required" style="color: red">This field is required</div> -->
+                                <div *ngIf="ex.errors.pattern" style="color: red">Only number</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Role*</label><br>
+                        <select class="form-control" [(ngModel)]="role"#rol="ngModel" name="role" required>
+                            <option>Select</option>
+                            <option>Admin</option>
+                            <option>Lead</option>
+                            <option>Recuter</option>
+                        </select>
+                        <div *ngIf="formval.invalid && rol.touched">
+                                <div *ngIf="rol.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>DOB</label><br>
+                        <input type="date" name="bday" max="3000-12-31" min="1000-01-01"
+                            class="form-control" [(ngModel)]="dob" name="dob"#dobb="ngModel" required>
+                            <div *ngIf="formval.invalid && dobb.touched">
+                                    <div *ngIf="dobb.errors.required" style="color: red">This field is required</div>    
+                            </div>
+                    </div>
+                    <div class="col-4">
+                        <label>DOJ</label><br>
+                        <input type="date" name="bday" max="3000-12-31" min="1000-01-01"
+                            class="form-control" [(ngModel)]="doj" name="doj" #dojj="ngModel"required>
+                            <div *ngIf="formval.invalid && dojj.touched">
+                                    <div *ngIf="dojj.errors.required" style="color: red">This field is required</div>    
+                            </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Reporting Manager</label><br>
+                        <select class="form-control" [(ngModel)]="rm" name="reportingId" required #rmm="ngModel">
+                            <option>Select</option>
+                            <option *ngFor="let e of usersList " value="{{e.id}}">{{e.firstName}} {{e.lastName}}</option>
+                        </select>
+                        <div *ngIf="formval.invalid && rmm.touched">
+                                <div *ngIf="rmm.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-4">
+                        <label>Username*</label><br>
+                        <input placeholder="@ojas-it.com" class="form-control" [(ngModel)]="uname" name="name" required #us="ngModel">
+                        <div *ngIf="formval.invalid && us.touched">
+                                <div *ngIf="us.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Password*</label><br>
+                        <input placeholder="Enter Password" type="password" class="form-control" [(ngModel)]="pass" #ps="ngModel" name="password" required>
+    
+                    </div>
+                    <div *ngIf="formval.invalid && ps.touched">
+                            <div *ngIf="ps.errors.required" style="color: red">This field is required</div>    
+                    </div>
+                </div>
+                <hr>
+                Salary Details
+                <div class="row">
+                    <div class="col-4">
+                        <label>Salary*</label><br>
+                        <input placeholder="Basic Salary" class="form-control" [(ngModel)]="sal" name="salary" #sala="ngModel" required>
+                        <div *ngIf="formval.invalid && sala.touched">
+                                <div *ngIf="sala.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Variable pay*</label><br>
+                        <input placeholder="Enter your answer" class="form-control" [(ngModel)]="varpay" name="variablepay" #vp="ngModel" required>
+                        <div *ngIf="formval.invalid && vp.touched">
+                                <div *ngIf="vp.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>CTC*</label><br>
+                        <input placeholder="total CTC" class="form-control"[(ngModel)]="ctc" name="ctc" #ctcc="ngModel" required>
+                        <div *ngIf="formval.invalid && ctcc.touched">
+                                <div *ngIf="ctcc.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>Target(min)*</label><br>
+                        <input placeholder="min target" class="form-control"[(ngModel)]="tarmin" name="mintarget" #mt="ngModel" required>
+                        <div *ngIf="formval.invalid && mt.touched">
+                                <div *ngIf="mt.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Target(max)*</label><br>
+                        <input placeholder="max target" class="form-control"[(ngModel)]="tarmax" name="maxtarget" #it="ngModel" required>
+                        <div *ngIf="formval.invalid && it.touched">
+                                <div *ngIf="it.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Target Duration*</label><br>
+                        <select class="form-control" [(ngModel)]="tardur" name="targetduration" #td="ngModel" required>
+                            <option>Select</option>
+                            <option>Q1</option>
+                            <option>Q2</option>
+                            <option>Q3</option>
+                            <option>Q4</option>
+                        </select>
+                        <div *ngIf="formval.invalid && td.touched">
+                                <div *ngIf="td.errors.required" style="color: red">This field is required</div>    
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="row m-5">
+                <button  class="btn btn-primary m-2"
+                   [routerLink]="['../user']" >Cancel</button>
+                <button class="btn btn-danger m-2">Reset</button>
+                <button type="submit" class="ml-auto btn btn-primary m-3" [disabled]="formval.invalid">Register</button>
+            </div>
+        </form>

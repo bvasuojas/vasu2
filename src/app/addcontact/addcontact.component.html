@@ -1,0 +1,220 @@
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Customer Contact</span>
+
+</nav>
+<br>
+<div class="container-fluid">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
+  <div class="row">
+          
+         <div class="form-group col-md-6">
+          <fieldset class="the-fieldset">
+              <legend class="the-legend" style="color:#8A2BE2; font-size:18px">
+                  <h5>Contact Details</h5>
+              </legend>
+              <div class="form-group">
+                      <div style="float:left">
+                              <button class="btn btn-success">Update</button>
+                      </div>
+                  </div>
+                  <br>
+              <!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> -->
+                      <div class="row">
+                  <div class="form-group col-md-6">
+                      <label style="color:#0000A0;"><h6>Customer Name*</h6></label>
+                      <input type="text" formControlName="customername" class="form-control" 
+                      [ngClass]="{ 'is-invalid': submitted && f.customername.errors }" />
+                      <div *ngIf="submitted && f.customername.errors" class="invalid-feedback">
+                          <div *ngIf="f.customername.errors.required">Customer Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label style="color:#0000A0;"><h6>Contact Name*</h6></label>
+                      <input type="text" formControlName="contactName" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.contactName.errors }" >
+                  
+                      <div *ngIf="submitted && f.contactName.errors" class="invalid-feedback">
+                          <div *ngIf="f.contactName.errors.required">This field is required</div>
+                      </div>
+                  </div>
+                      </div>
+                      <div class="row">
+                  <div class="form-group col-md-6">
+                      <label style="color:#0000A0;"><h6>Email Id*</h6></label>
+                      <input type="text" formControlName="email" class="form-control" 
+                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">name is required</div>
+                          
+                      </div>
+                  </div>
+                      <div class="form-group col-md-6">
+                         <label style="color:#0000A0;"><h6>Mobile No*</h6></label>
+                         <input type="text" formControlName="mobile" class="form-control" 
+                         [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" >
+                         <!-- <option value="">select</option>
+                         <option value="Mr">suzuki</option>
+                         <option value="Mrs">simeno</option>
+                         <option value="Miss">suzukicontact</option>
+                     </select> -->
+                         <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback" >
+                             <div *ngIf="f.mobile.errors.required">This field is required</div>
+                         </div>
+                    </div>
+                  </div> 
+                  <div class="form-group ">
+                          <label style="color:#0000A0;"><h6>Business Location*</h6></label>
+                          <input type="text" formControlName="business" class="form-control" 
+                          [ngClass]="{ 'is-invalid': submitted && f.business.errors }" />
+                          <div *ngIf="submitted && f.business.errors" class="invalid-feedback" >
+                              <div *ngIf="f.business.errors.required">name is required</div>
+                          </div>
+                      </div>
+                      <div class="row">
+                   <div class="form-group col-md-6">
+                         <label style="color:#0000A0;"><h6>Birth Date*</h6></label>
+                         <input type="text" formControlName="birth" class="form-control" 
+                         [ngClass]="{ 'is-invalid': submitted && f.birth.errors }" >
+                         <div *ngIf="submitted && f.birth.errors" class="invalid-feedback" >
+                             <div *ngIf="f.birth.errors.required">Location is required</div>
+                         </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                          <label style="color:#0000A0;"><h6>Anniversary Date*</h6></label>
+                          <input type="text" formControlName="anniversary" class="form-control" 
+                          [ngClass]="{ 'is-invalid': submitted && f.anniversary.errors }" >
+                          <div *ngIf="submitted && f.anniversary.errors" class="invalid-feedback" >
+                              <div *ngIf="f.anniversary.errors.required">Location is required</div>
+                          </div>
+                     </div>
+                      </div>
+                
+                <div class="row">
+                      <div class="form-group col-md-6">
+                         <label style="color:#0000A0;"><h6>Primary BDM*</h6></label>
+                         <select name="title" formControlName="primary" class="form-control" 
+                         [ngClass]="{ 'is-invalid': submitted && f.primary.errors }" >
+                         <option value="">select</option>
+                         <option value="Mr">suzuki</option>
+                         <option value="Mrs">simeno</option>
+                         <option value="Miss">suzukicontact</option>
+                     </select>
+                         <div *ngIf="submitted && f.primary.errors" class="invalid-feedback" >
+                             <div *ngIf="f.primary.errors.required">This field is required</div>
+                         </div>
+                    </div>
+                   <div class="form-group col-md-6">
+                         <label style="color:#0000A0;"><h6>Secondary BDM*</h6></label>
+                         <select name="title" formControlName="secondary" class="form-control" 
+                         [ngClass]="{ 'is-invalid': submitted && f.secondary.errors }" >
+                         <option value="">select</option>
+                         <option value="Mr">suzuki</option>
+                         <option value="Mrs">simeno</option>
+                         <option value="Miss">suzukicontact</option>
+                     </select>
+                         <div *ngIf="submitted && f.secondary.errors" class="invalid-feedback" >
+                             <div *ngIf="f.secondary.errors.required">certificates is required</div>
+                         </div>
+                    </div>
+                </div> 
+                <div class="row">
+                  <div class="form-group col-md-6">
+                      <label style="color:#0000A0;"><h6>Account Manager*</h6></label>
+                      <input type="text" formControlName="account" class="form-control" 
+                      [ngClass]="{ 'is-invalid': submitted && f.account.errors }" />
+                      <div *ngIf="submitted && f.account.errors" class="invalid-feedback" >
+                          <div *ngIf="f.account.errors.required">date is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label style="color:#0000A0;"><h6>Lead*</h6></label>
+                      <select name="title" formControlName="lead" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.lead.errors }" >
+                       <option value="">select</option>
+                       <option value="Mr">suzuki</option>
+                       <option value="Mrs">simeno</option>
+                       <option value="Miss">suzukicontact</option>
+                   </select>
+                      <div *ngIf="submitted && f.lead.errors" class="invalid-feedback" >
+                          <div *ngIf="f.lead.errors.required">date is required</div>
+                      </div>
+                  </div>
+              </div>
+         </fieldset>
+     </div>
+     <div class="form-group col-md-6">
+      <fieldset class="the-fieldset">
+          <legend class="the-legend" style="color:#8A2BE2; font-size:18px">
+              <h5>Edit Additional Information</h5>
+          </legend>
+          <div class="form-group ml-1">
+              <div style="float:left">
+                      <button class="btn btn-primary">Save</button>
+              </div>
+          </div><br>
+          <div class="form-group col-md-6">
+              <label style="color:#0000A0;"><h6>Address Type*</h6></label>
+              <select name="title" formControlName="address" class="form-control" 
+              [ngClass]="{ 'is-invalid': submitted && f.address.errors }" >
+              <option value=""></option>
+              <option value="Mr">contract to hire</option>
+              <option value="Mrs">permanent</option>
+              <option value="Miss">contract</option>
+          </select>
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                  <div *ngIf="f.address.errors.required">This field is required</div>
+              </div>
+          </div>
+          <div class="row ml-1">
+              <div class="form-group col-md-6">
+                 <label style="color:#0000A0;"><h6>Street 1*:</h6></label>
+                 <input type="text" formControlName="Street1" class="form-control" 
+                 [ngClass]="{ 'is-invalid': submitted && f.Street1.errors }" />
+                 <div *ngIf="submitted && f.Street1.errors" class="invalid-feedback" >
+                     <div *ngIf="f.Street1.errors.required">This field is required</div>
+                 </div>
+            </div>
+           <div class="form-group col-md-6">
+                 <label style="color:#0000A0;"><h6>Street 2*:</h6></label>
+                 <input type="text" formControlName="Street2" class="form-control" 
+                 [ngClass]="{ 'is-invalid': submitted && f.Street2.errors }" />
+                 <div *ngIf="submitted && f.Street2.errors" class="invalid-feedback" >
+                     <div *ngIf="f.Street2.errors.required">This field is required</div>
+                 </div>
+            </div>
+        </div> 
+    <div class="row ml-1">
+      <div class="form-group col-md-6">
+         <label style="color:#0000A0;"><h6>Country*:</h6></label>
+         <input type="text" formControlName="country" class="form-control" 
+         [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
+         <div *ngIf="submitted && f.country.errors" class="invalid-feedback" >
+             <div *ngIf="f.country.errors.required">status is required</div>
+         </div>
+    </div>
+   <div class="form-group col-md-6">
+         <label style="color:#0000A0;"><h6>State*:</h6></label>
+         <input type="text" formControlName="State" class="form-control" 
+         [ngClass]="{ 'is-invalid': submitted && f.State.errors }">
+         <div *ngIf="submitted && f.State.errors" class="invalid-feedback" >
+             <div *ngIf="f.State.errors.required">Location is required</div>
+         </div>
+      </div>
+</div>
+<div class="form-group col-md-6 ml-1">
+  <label  style="color:#0000A0;"><h6>Pincode*:</h6></label>
+  <input type="text" formControlName="Pincode" class="form-control" 
+     [ngClass]="{ 'is-invalid': submitted && f.Pincode.errors }" >
+     <div *ngIf="submitted && f.Pincode.errors" class="invalid-feedback" >
+         <div *ngIf="f.Pincode.errors.required">pincode is required</div>
+     </div>
+</div><br><br>
+<div class="row ml-3">
+  <label style="color: black;"><h2>Address Details</h2></label>
+</div>
+
+</fieldset>
+     </div>
+  </div>
+</form>
+</div>

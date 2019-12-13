@@ -1,0 +1,14 @@
+.card{
+    border-left:3px solid rgb(37, 95, 180);
+}
+.hov{
+
+    font-size:20px;
+    color: white
+    }
+    .hove:active{
+        color: white
+    }
+    .hov:hover{
+        color: white
+    }

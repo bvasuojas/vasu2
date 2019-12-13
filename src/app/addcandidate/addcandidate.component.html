@@ -1,0 +1,609 @@
+<nav class="navbar navbar-light bg">
+  <span class="navbar-brand mb-0 h1"><i class="fa fa-plus-circle"></i>Add Candidate</span>
+
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="form-group col-md-6">
+      <fieldset class="the-fieldset">
+        <legend class="the-legend" style="color:royalblue">
+          <h5>Add Candidate</h5>
+        </legend>
+        &nbsp;&nbsp;
+        <form [formGroup]="registerForm" (ngSubmit)="save()">
+
+          <div class="form-row">
+            <div class="form-group col-4">
+              <label style="color:rgb(21, 59, 172)">Title</label>
+              <select formControlName="title" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                <option value="" disabled selected>--Select--</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+              </select>
+              <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                <div *ngIf="f.title.errors.required">Title is required</div>
+              </div>
+            </div>
+            <div class="form-group col-4">
+              <label style="color:rgb(21, 59, 172)">First Name</label>
+              <input type="text" formControlName="firstName" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="Enter firstname" />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+            <div class="form-group col-4">
+              <label style="color:rgb(21, 59, 172)">Last Name</label>
+              <input type="text" formControlName="lastName" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Enter lastname" />
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-4">
+              <label style="color:rgb(21, 59, 172)"> Mobile* </label>
+              <input type="text" formControlName="mobile" class="form-control"
+                [ngClass]="{'is-invalid':submitted && f.mobile.errors }">
+
+
+              <section *ngIf="submitted && f.mobile.errors" class="invalid-feedback ">
+
+                <p *ngIf="f.mobile.errors.required"> Required Mobile Number</p>
+                <p *ngIf="f.mobile.errors.pattern">Enter valid Mobile Number</p>
+
+              </section>
+            </div>
+
+            <div class="form-group col-4">
+              <label style="color:rgb(21, 59, 172)"> Alternate Mobile</label>
+              <input type="text" formControlName="mobile" class="form-control"
+                [ngClass]="{'is-invalid':submitted && f.mobile.errors }">
+
+
+              <section *ngIf="submitted && f.mobile.errors" class="invalid-feedback ">
+
+                <p *ngIf="f.mobile.errors.required"> Required Mobile Number</p>
+                <p *ngIf="f.mobile.errors.pattern">Enter valid Mobile Number</p>
+
+              </section>
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label style="color:rgb(21, 59, 172)">Email*</label>
+              <input type="text" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label style="color:rgb(21, 59, 172)"> Alternate Email </label>
+              <input type="text" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class=" form-group col-md-6">
+              <label style="color:rgb(21, 59, 172)">Candidate Source* </label>
+              <select formControlName="candidateSource" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.candidateSource.errors }">
+                <option value="">--Select--</option>
+                <option value="Naukari">Naukari</option>
+                <option value="Monster">Monster</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="TimeJobs">TimeJobs</option>
+                <option value="Ojas">Ojas</option>
+                <option value="Referred">Referred</option>
+                <option value="Other">Other</option>
+              </select>
+              <div *ngIf="submitted && f.candidateSource.errors" class="invalid-feedback">
+                <div *ngIf="f.candidateSource.errors.required">Required candidate Source</div>
+                <div *ngIf="f.candidateSource.errors.pattern">source must be a valid</div>
+              </div>
+            </div>
+
+            <div class=" form-group col-md-2">
+              <label style="color:rgb(21, 59, 172)">Education* </label>
+              <select formControlName="education" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.education.errors }">
+                <option value="">--Select--</option>
+                <option value="Mba">MBA</option>
+              </select>
+
+              <div *ngIf="submitted && f.education.errors" class="invalid-feedback">
+                <div *ngIf="f.education.errors.required">Required candidate Source</div>
+                <div *ngIf="f.education.errors.pattern">source must be a valid</div>
+              </div>
+
+            </div>
+            <div class="form-group col-md-4">
+              <label style="color:rgb(21, 59, 172)">Applying as a* </label>
+              <select formControlName="applyingAs" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.applyingAs.errors }">
+                <option value="">--select--</option>
+                <option value="fresh">Fresher</option>
+                <option value="experience">Experienced</option>
+              </select>
+
+
+              <div *ngIf="submitted && f.applyingAs.errors" class="invalid-feedback">
+                <div *ngIf="f.applyingAs.errors.required">Required candidate Source</div>
+                <div *ngIf="f.applyingAs.errors.pattern">source must be a valid</div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <!-- <div class="row">
+              <div class=" form-group col-md-6">
+                <label style="color:rgb(21, 59, 172)">Total experience* </label>
+                <span>&nbsp;(yrs-Months)</span>
+                <div class="row">
+  
+                  <div class="col-md-6">
+                    <select name="yrs" class="form-control" [(ngModel)]="yrstype" #yrsfld="ngModel" class="form-control">
+                      <option value="">--Years--</option>
+                      <option value="one">1</option>
+                      <option value="two">2</option>
+                      <option value="three">3</option>
+                      <option value="four">4</option>
+                      <option value="five">5</option>
+                      <option value="six">6</option>
+                      <option value="seven">7</option>
+                      <option value="eight">8</option>
+                      <option value="nine">9</option>
+                      <option value="ten">10</option>
+                      <option value="eleven">11</option>
+                      <option value="twelve">12</option>
+                      <option value="">13</option>
+                      <option value="">14</option>
+                      <option value="">15</option>
+                      <option value="">16</option>
+                      <option value="">17</option>
+                      <option value="">18</option>
+                      <option value="">19</option>
+                      <option value="">20</option>
+                      <option value="">21</option>
+                      <option value="">22</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select name="months" class="form-control" [(ngModel)]="mnthtype" #mnthfld="ngModel"
+                      class="form-control">
+                      <option value="">--Months--</option>
+                      <option value="onem">1</option>
+                      <option value="twom">2</option>
+                      <option value="threem">3</option>
+                      <option value="fourm">4</option>
+                      <option value="fivem">5</option>
+                      <option value="sixm">6</option>
+                      <option value="sevenm">7</option>
+                      <option value="eightm">8</option>
+                      <option value="ninem">9</option>
+                      <option value="tenm">10</option>
+                      <option value="elevenm">11</option>
+                      <option value="twelvem">12</option>
+                    </select>
+                  </div>
+                </div>
+              </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div style="float:right ">
+            <button class="btn btn-danger">Cancel</button>&nbsp;
+            <button class="btn btn-success">Create</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- 
+
+
+
+
+             
+                <div class="row">
+                  <div class=" form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Candidate Source* </label>
+                    <select name="CanSou" class="form-control" [(ngModel)]="Candid" #candfld="ngModel" class="form-control"
+                      required [ngClass]="{'is-invalid': candfld.touched && candfld.invalid ,'is-valid':candfld.valid}">
+                      <option value="">--Select--</option>
+                      <option value="Naukari">Naukari</option>
+                      <option value="Monster">Monster</option>
+                      <option value="LinkedIn">LinkedIn</option>
+                      <option value="TimeJobs">TimeJobs</option>
+                      <option value="Ojas">Ojas</option>
+                      <option value="Referred">Referred</option>
+                      <option value="Other">Other</option>
+                    </select>
+      
+                    <section *ngIf="candfld.touched && candfld.invalid">
+                      <p *ngIf="candfld.errors.required" class="txt"> Required candidate Source</p>
+                    </section>
+                  </div>
+                  <div class=" form-group col-md-2">
+                    <label style="color:rgb(21, 59, 172)">Education* </label>
+                    <select name="edu" class="form-control" [(ngModel)]="edutype" #edufld="ngModel" class="form-control">
+                    </select>
+      
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label style="color:rgb(21, 59, 172)">Applying as a* </label>
+                    <select name="jobtype" class="form-control" [(ngModel)]="jtype" #jobfld="ngModel" class="form-control"
+                      required [ngClass]="{'is-invalid': jobfld.touched && jobfld.invalid ,'is-valid':jobfld.valid}">
+                      <option value="">--select--</option>
+                      <option value="fresh">Fresher</option>
+                      <option value="experience">Experienced</option>
+                    </select>
+                    <section *ngIf="jobfld.touched && jobfld.invalid">
+                      <p *ngIf="jobfld.errors.required" class="txt"> Select any option</p>
+                    </section>
+                  </div>
+                </div>
+      
+                
+                <div class="row">
+                  <div class=" form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Total experience* </label>
+                    <span>&nbsp;(yrs-Months)</span>
+                    <div class="row">
+      
+                      <div class="col-md-6">
+                        <select name="yrs" class="form-control" [(ngModel)]="yrstype" #yrsfld="ngModel" class="form-control">
+                          <option value="">--Years--</option>
+                          <option value="one">1</option>
+                          <option value="two">2</option>
+                          <option value="three">3</option>
+                          <option value="four">4</option>
+                          <option value="five">5</option>
+                          <option value="six">6</option>
+                          <option value="seven">7</option>
+                          <option value="eight">8</option>
+                          <option value="nine">9</option>
+                          <option value="ten">10</option>
+                          <option value="eleven">11</option>
+                          <option value="twelve">12</option>
+                          <option value="">13</option>
+                          <option value="">14</option>
+                          <option value="">15</option>
+                          <option value="">16</option>
+                          <option value="">17</option>
+                          <option value="">18</option>
+                          <option value="">19</option>
+                          <option value="">20</option>
+                          <option value="">21</option>
+                          <option value="">22</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <select name="months" class="form-control" [(ngModel)]="mnthtype" #mnthfld="ngModel"
+                          class="form-control">
+                          <option value="">--Months--</option>
+                          <option value="onem">1</option>
+                          <option value="twom">2</option>
+                          <option value="threem">3</option>
+                          <option value="fourm">4</option>
+                          <option value="fivem">5</option>
+                          <option value="sixm">6</option>
+                          <option value="sevenm">7</option>
+                          <option value="eightm">8</option>
+                          <option value="ninem">9</option>
+                          <option value="tenm">10</option>
+                          <option value="elevenm">11</option>
+                          <option value="twelvem">12</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Relevant Experience*</label> <span>&nbsp;(Yrs)</span>
+                    <input [(ngModel)]="rexp" name="relexp" #rexpfld="ngModel" class="form-control" required
+                      placeholder="Enter Relevant Experience"
+                      [ngClass]="{'is-invalid': rexpfld.touched && rexpfld.invalid ,'is-valid':rexpfld.valid}">
+      
+      
+                    <section *ngIf="rexpfld.touched && rexpfld.invalid">
+      
+                      <p *ngIf="rexpfld.errors.required" class="txt"> This field is required</p>
+      
+                    </section>
+                  </div>
+                </div>
+      
+      
+               
+                <div class="row">
+                  <div class=" form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Current CTC* </label> <span>&nbsp;(PA)</span>
+                    <input [(ngModel)]="cctc" name="ctc1" #cctcfld="ngModel" class="form-control" required
+                      placeholder="Enter Current CTC" minlength="6"
+                      [ngClass]="{'is-invalid': cctcfld.touched && cctcfld.invalid ,'is-valid':cctcfld.valid}">
+      
+      
+                    <section *ngIf="cctcfld.touched && cctcfld.invalid">
+      
+                      <p *ngIf="cctcfld.errors.required" class="txt"> Enter your Current CTC</p>
+                      <p *ngIf="cctcfld.errors.minlength" class="txt"> CTC should be in lakhs only.</p>
+                    </section>
+                  </div>
+                  <div class=" form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)"> Expected CTC* </label> <span>&nbsp;(PA)</span>
+                    <input [(ngModel)]="ectc" name="ctc2" #ectcfld="ngModel" class="form-control" required
+                      placeholder="Enter Expected CTC" minlength="6"
+                      [ngClass]="{'is-invalid': ectcfld.touched && ectcfld.invalid ,'is-valid':ectcfld.valid}">
+      
+      
+                    <section *ngIf="ectcfld.touched && ectcfld.invalid">
+      
+                      <p *ngIf="ectcfld.errors.required" class="txt"> Enter your Expected CTC</p>
+                      <p *ngIf="ectcfld.errors.minlength" class="txt">CTC should be in lakhs only. </p>
+                    </section>
+                  </div>
+                </div>
+      
+                
+                <div class="row">
+                  <div class=" form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Salary Negotiable* </label>
+                    <select name="sal" class="form-control" [(ngModel)]="saltype" #salfld="ngModel" class="form-control"
+                      required [ngClass]="{'is-invalid': salfld.touched && salfld.invalid ,'is-valid':salfld.valid}">
+                      <option value="">--select--</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                    <section *ngIf="salfld.touched && salfld.invalid">
+                      <p *ngIf="salfld.errors.required" class="txt"> Select any option</p>
+                    </section>
+                  </div>
+                  <div class=" form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Notice Period* </label><span>&nbsp;(Days)</span>
+                    <select name="notice" class="form-control" [(ngModel)]="noticetype" #noticefld="ngModel"
+                      class="form-control" required
+                      [ngClass]="{'is-invalid': noticefld.touched && noticefld.invalid ,'is-valid':noticefld.valid}">
+                      <option value="">--select--</option>
+                      <option value="f">0</option>
+                      <option value="s">0-7</option>
+                      <option value="t">8-14</option>
+                      <option value="fo">15-30</option>
+                      <option value="fi">30-60</option>
+                      <option value="si">60-90</option>
+                    </select>
+                    <section *ngIf="noticefld.touched && noticefld.invalid">
+                      <p *ngIf="noticefld.errors.required" class="txt"> Select any option</p>
+                    </section>
+                  </div>
+                </div>
+      
+              </form>  -->
+
+
+
+<!--       
+          <div class="form-group col-md-6">
+            <fieldset class="the-fieldset">
+              <legend class="the-legend" style="color:royalblue">
+                <h5>Additional Details</h5>
+              </legend>
+              &nbsp;&nbsp; -->
+
+<!-- <form #userform="ngForm" (submit)="save(userform.value)">
+               
+                <div class="row">
+                  <div class="form-group col-md-6">
+      
+                    <label style="color:rgb(21, 59, 172)"> Street 1 </label>
+                    <input [(ngModel)]="street1" name="st1" #st1fld="ngModel" class="form-control" placeholder="Enter Street">
+                  </div>
+                  <div class="form-group col-md-6 ">
+                    <label style="color:rgb(21, 59, 172)"> Street 2 </label>
+                    <input [(ngModel)]="street2" name="st2" #st2fld="ngModel" class="form-control" placeholder="Enter Street">
+                  </div>
+                </div>
+      
+               
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)"> City </label>
+                    <input [(ngModel)]="city" name="cty" #ctyfld="ngModel" class="form-control" placeholder="Enter City">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)"> State </label>
+                    <input [(ngModel)]="state" name="sta" #stafld="ngModel" class="form-control" placeholder="Enter State">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)"> Pin Code</label>
+                    <input [(ngModel)]="pin" name="pinc" #pincfld="ngModel" class="form-control" placeholder="Enter Pincode">
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Willing to Relocate* </label>
+                    <select name="relo" class="form-control" [(ngModel)]="relotype" #relofld="ngModel" class="form-control"
+                      required [ngClass]="{'is-invalid': relofld.touched && relofld.invalid ,'is-valid':relofld.valid}">
+                      <option value="">--select--</option>
+                      <option value="Yes1">Yes</option>
+                      <option value="No1">No</option>
+                    </select>
+                    <section *ngIf="relofld.touched && relofld.invalid">
+                      <p *ngIf="relofld.errors.required" class="txt"> This field is Required</p>
+                    </section>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)"> Skype ID</label>
+                    <input [(ngModel)]="skype" name="skypetype" #skypefld="ngModel" class="form-control"
+                      placeholder="Enter SkypeID">
+                  </div>
+                </div>
+      
+                <div class=row>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)">Current Job Type* </label>
+                    <select name="cujob" class="form-control" [(ngModel)]="cujobtype" #cujobfld="ngModel" class="form-control"
+                      required aria-placeholder="select"
+                      [ngClass]="{'is-invalid': cujobfld.touched && cujobfld.invalid ,'is-valid':cujobfld.valid}">
+                      <option value="">--select--</option>
+                      <option value="Permanent">Permanent</option>
+                      <option value="C2H">C2H</option>
+                      <option value="Contract">Contract</option>
+                    </select>
+                    <section *ngIf="cujobfld.touched && cujobfld.invalid">
+                      <p *ngIf="cujobfld.errors.required" class="txt"> This field is Required</p>
+                    </section>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)"> PayRoll company name</label>
+                    <input [(ngModel)]="payco" name="paycotype" #paycofld="ngModel" class="form-control"
+                      placeholder="Enter payRoll company">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)"> Current location</label>
+                    <input [(ngModel)]="culo" name="culotype" #culofld="ngModel" class="form-control"
+                      placeholder="Enter Current location">
+                  </div>
+                </div>
+      
+             
+                <div class=row>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)"> Current Company Name</label>
+                    <input [(ngModel)]="cuco" name="cucotype" #cucofld="ngModel" class="form-control"
+                      placeholder="Enter Current company">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)">PAN CARD Number</label>
+                    <input [(ngModel)]="pan" name="pantype" #panfld="ngModel" class="form-control"
+                      placeholder="Enter PAN number">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label style="color:rgb(21, 59, 172)">Prefered Location* </label>
+                    <select name="preflo" class="form-control" [(ngModel)]="preflotype" #preflofld="ngModel"
+                      class="form-control" required aria-placeholder="select"
+                      [ngClass]="{'is-invalid': preflofld.touched && preflofld.invalid ,'is-valid':preflofld.valid}">
+                      <option value="">--select--</option>
+                      <option value="hyderabad">Hyd</option>
+                      <option value="bangalore">Bnglr</option>
+                      <option value="mumbai">Mumabai</option>
+                      <option value="chennai">Chen</option>
+                      <option value="pune">Pune</option>
+                    </select>
+                    <section *ngIf="preflofld.touched && preflofld.invalid">
+                      <p *ngIf="preflofld.errors.required" class="txt"> This field is Required</p>
+                    </section>
+                  </div>
+                </div>
+           
+                <div class=row>
+                  <div class="form-group col-md-3">
+                    <label style="color:rgb(21, 59, 172)">Primary Skills* </label>
+                    <select name="pri" class="form-control" [(ngModel)]="pritype" #prifld="ngModel" class="form-control">
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label style="color:rgb(21, 59, 172)">Secondary Skills </label>
+                    <select name="sec" class="form-control" [(ngModel)]="sectype" #secfld="ngModel" class="form-control">
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label style="color:rgb(21, 59, 172)">Certifications* </label>
+                    <select name="cer" class="form-control" [(ngModel)]="certype" #cerfld="ngModel" class="form-control"
+                      required>
+                      <option value="">--select--</option>
+                      <option value="Yes2">Yes</option>
+                      <option value="No2">No</option>
+                    </select>
+      
+                  </div>
+                  <div class="form-group col-md-3" *ngIf="stat">
+                    <label style="color:rgb(21, 59, 172)">Certificate Name </label>
+                    <select name="cen" class="form-control" [(ngModel)]="centype" #cenfld="ngModel" class="form-control">
+                    </select>
+                  </div>
+                </div>
+             
+                <div class=row>
+                  <div class="form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Upload Resume*</label>
+                    <input type="file" name="myFile">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label style="color:rgb(21, 59, 172)">Position applied for</label>
+                    <input [(ngModel)]="posi" name="positype" #posifld="ngModel" class="form-control"
+                      placeholder="Enter position applying for">
+                  </div>
+                </div>
+                <div style="float:right ">
+                  <button class="btn btn-danger">Cancel</button>&nbsp;
+                  <button type="submit" class="btn btn-success">Create</button>
+                </div>
+              </form> -->
+<!-- </fieldset>
+          </div> -->

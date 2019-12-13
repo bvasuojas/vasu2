@@ -1,0 +1,13 @@
+.card{
+    border-left:3px solid rgb(37, 95, 180);
+}
+.foot {
+    position: static;
+    left: 0;
+    height: 80px;
+    bottom: 0px;
+ 
+   background-color: #b7b5b8;
+
+  }
+  

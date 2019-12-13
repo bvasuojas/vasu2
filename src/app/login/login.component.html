@@ -1,0 +1,56 @@
+
+<div class="login-bg" style="margin-left: -15px;">
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="mx-auto logdiv">
+                    <img src="/assets/ojas.png" width="200px">
+                    <form [formGroup]="login" (submit)="onsubmit()">
+                        <input type="text" formControlName="username" placeholder="Username" class="login-fields">
+                        <div *ngIf="login.get('username').invalid && login.get('username').touched">
+                                <p *ngIf="login.get('username').errors.required" style="color: red">Enter Username</p>
+                                
+                        </div>
+                    <br>
+                    <input type="{{temp}}" formControlName="password" placeholder="Password" class="login-fields">
+                    <i *ngIf="openeye" style="color:aliceblue;" class="fa fa-eye" aria-hidden="true" (click)="fafa()"></i>
+                    <i *ngIf="slasheye" style="color:aliceblue;" class="fa fa-eye-slash" aria-hidden="true" (click)="fafa()"></i>
+              
+                       <!-- <show-hide-password class="show-hide-password asl" size="sm" > 
+                        
+                    </show-hide-password>   -->
+             
+                        <div *ngIf="login.get('password').invalid && login.get('password').touched">
+                                <p *ngIf="login.get('password').errors.required" style="color: red">Enter password</p>
+                              
+                            </div>
+
+
+                            <div><span style="color: white; padding: 2px;">security code</span> <input  name="Field1"  [(ngModel)]="fld1" formControlName="field1" readonly style="width: 25px;"><span style="color: white;">+</span><input name="Field2"  [(ngModel)]="fld2" formControlName="field2" readonly style="width: 25px;">
+                                <span style="color: white;">=</span>  <input name="Field3" type="text" formControlName="field3" style="width: 25px;"></div>
+
+
+
+
+                   
+                        <br>
+                        <p *ngIf="msgerr" style="color: red">Please Enter Valid Credentials</p>
+                        <button type="submit" class="btn btn-success">Sign In</button>
+                        <br>
+                        <button class="btn btn-primary" type="button">Reset</button>
+                      
+                    </form>
+                    <label class="form-check-label check">
+                            <input type="checkbox" class="form-check-input " value="">&nbsp;&nbsp;&nbsp;&nbsp;Remember me
+                            </label>
+                            <label class="check float-right">
+                            Forget Password ? 
+                            </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,272 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Customer Contact </span>
+
+</nav>
+<div class="container-fluid">
+    <div class="row">
+           
+        <div class="form-group col-md-6">
+            <fieldset class="the-fieldset">
+                <legend class="the-legend" style="color:royalblue">
+                    <h5>Contact Details</h5>
+                </legend>
+
+                &nbsp;
+                <form #userform="ngForm" (submit)="save(userform.value)">
+                <button class="btn btn-success">Save</button>
+                <div style="float:right ">
+                        <button class="btn btn-danger">Cancel</button>&nbsp;
+                        
+                      </div>
+                <!-- first row -->
+                <div class="row">
+                    <div class=" form-group col-md-6">
+                        <label style="color:rgb(21, 59, 172)"> Customer Name </label>
+                        <input [(ngModel)]="clientName" placeholder="{{clientName}}" name="clientName" #cunamefld="ngModel" class="form-control" disabled>
+                    </div>
+                    <div class=" form-group col-md-6">
+                        <label style="color:rgb(21, 59, 172)"> Contact Name* </label>
+                        <input [(ngModel)]="contactName" name={{contactName}} #contnamefld="ngModel" class="form-control" required>
+                        <section *ngIf="contnamefld.touched && contnamefld.invalid">
+
+
+                            <p *ngIf="contnamefld.errors.required" class="txt"> This field is required*</p>
+
+                        </section>
+                    </div>
+                </div>
+
+                <!-- second row -->
+                <div class="row">
+                    <div class=" form-group col-md-6">
+                        <label style="color:rgb(21, 59, 172)"> Email ID* </label>
+                        <input [(ngModel)]="email1" name="em1" #emfld1="ngModel" class="form-control" required email
+                            placeholder="Enter Email Address"
+                            [ngClass]="{'is-invalid': emfld1.touched && emfld1.invalid ,'is-valid':emfld1.valid}">
+
+
+                        <section *ngIf="emfld1.touched && emfld1.invalid">
+
+                            <p *ngIf="emfld1.errors.required" class="txt">Email is Required </p>
+                            <p *ngIf="emfld1.errors.email" class="txt">Enter valid Email </p>
+
+                        </section>
+                    </div>
+                    <div class=" form-group col-md-6">
+                        <label style="color:rgb(21, 59, 172)"> Mobile* </label>
+                        <input [(ngModel)]="mobile" name="mob" #mobfld="ngModel" class="form-control" required
+                            placeholder="Enter Mobile Number" pattern="^[6-9]\d{9}$"
+                            [ngClass]="{'is-invalid': mobfld.touched && mobfld.invalid ,'is-valid':mobfld.valid}">
+
+
+                        <section *ngIf="mobfld.touched && mobfld.invalid">
+
+                            <p *ngIf="mobfld.errors.required" class="txt"> Required Mobile Number</p>
+                            <p *ngIf="mobfld.errors.pattern" class="txt">Enter valid Mobile Number</p>
+
+                        </section>
+                    </div>
+                </div>
+                <!-- third row -->
+                <div class="row">
+                    <div class=" form-group col-md-12">
+                        <label style="color:rgb(21, 59, 172)"> Business Location* </label>
+                        <input [(ngModel)]="busiloc" name="blocation" #blocfld="ngModel" class="form-control" required
+                            placeholder="Enter Business Location"
+                            [ngClass]="{'is-invalid': blocfld.touched && blocfld.invalid ,'is-valid': blocfld.valid}">
+                        <section *ngIf="blocfld.touched && blocfld.invalid">
+
+
+                            <p *ngIf="blocfld.errors.required" class="txt"> This field is required*</p>
+
+                        </section>
+                    </div>
+
+                </div>
+                <!-- fourth row -->
+                <div class="row">
+                    <div class=" form-group col-md-6">
+                        <label style="color:rgb(21, 59, 172)"> Birthday date* </label>
+                        <input [(ngModel)]="bdate" name="birth" #bdatefld="ngModel" class="form-control" required
+                            type="date"
+                            [ngClass]="{'is-invalid': bdatefld.touched && bdatefld.invalid ,'is-valid': bdatefld.valid}">
+                        <section *ngIf="bdatefld.touched && bdatefld.invalid">
+                            <p *ngIf="bdatefld.errors.required" class="txt"> This field is required*</p>
+
+                        </section>
+                    </div>
+                    <div class=" form-group col-md-6">
+                        <label style="color:rgb(21, 59, 172)"> Anniversary date </label>
+                        <input [(ngModel)]="andate" name="anniver" #andatefld="ngModel" class="form-control" required
+                            type="date" min="bdate">
+                    </div>
+                </div>
+                <!-- fifth row -->
+                <div class="row">
+                    <div class=" form-group col-md-6">
+                        <label style="color:rgb(21, 59, 172)">Primary BDM* </label>
+                        <select name="bdm1" class="form-control" [(ngModel)]="bdm1type" #bdm1fld="ngModel"
+                            class="form-control" required
+                            [ngClass]="{'is-invalid': bdm1fld.touched && bdm1fld.invalid ,'is-valid':bdm1fld.valid}">
+                            <option value="">--Select primary BDM--</option>
+                            <option value="meena1">Meenakshi.allu@ojas-it.com</option>
+                            <option value="vamshi1">Vamshi.pilly@ojas-it.com</option>
+                            <option value="sanjeev1">Sanjeevareddy.pakala@ojas-it.com</option>
+                            <option value="raghu1">Raghu.akula@ojas-it.com</option>
+                            <option value="nikhil1">NikhilReddy.p@ojas-it.com</option>
+                            <option value="shobha1">Shobha.kodavandla@ojas-it.com</option>
+                        </select>
+
+                        <section *ngIf="bdm1fld.touched && bdm1fld.invalid">
+                            <p *ngIf="bdm1fld.errors.required" class="txt"> Select any option*</p>
+                        </section>
+                    </div>
+                    <div class=" form-group col-md-6">
+                            <label style="color:rgb(21, 59, 172)">Secondary BDM* </label>
+                            <select name="bdm2" class="form-control" [(ngModel)]="bdm2type" #bdm2fld="ngModel"
+                                class="form-control" required
+                                [ngClass]="{'is-invalid': bdm2fld.touched && bdm2fld.invalid ,'is-valid':bdm2fld.valid}">
+                                <option value="">--Select Secondary BDM--</option>
+                                <option value="meena2">Meenakshi.allu@ojas-it.com</option>
+                                <option value="vamshi2">Vamshi.pilly@ojas-it.com</option>
+                                <option value="sanjeev2">Sanjeevareddy.pakala@ojas-it.com</option>
+                                <option value="raghu2">Raghu.akula@ojas-it.com</option>
+                                <option value="nikhil2">NikhilReddy.p@ojas-it.com</option>
+                                <option value="shobha2">Shobha.kodavandla@ojas-it.com</option>
+                            </select>
+    
+                            <section *ngIf="bdm2fld.touched && bdm2fld.invalid">
+                                <p *ngIf="bdm2fld.errors.required" class="txt"> Select any option*</p>
+                            </section>
+                    </div>
+                </div>
+                <!-- sixth row -->
+                <div class="row">
+                    <div class=" form-group col-md-6">
+                            <label style="color:rgb(21, 59, 172)"> Account Manager </label>
+                            <input [(ngModel)]="accman" name="accmname" #accmfld="ngModel" class="form-control" disabled>
+                    </div>
+                    <div class=" form-group col-md-6">
+                            <label style="color:rgb(21, 59, 172)">Lead* </label>
+                            <select name="lead" class="form-control" [(ngModel)]="leadtype" #leadfld="ngModel"
+                                class="form-control" required
+                                [ngClass]="{'is-invalid': leadfld.touched && leadfld.invalid ,'is-valid':leadfld.valid}">
+                                <option value="">--Select Secondary BDM--</option>
+                                <option value="sunil">Sunil Mukta</option>
+                                <option value="radhi">Radhika</option>
+                                <option value="sach">Sachin</option>
+                                <option value="parv">Parvathi</option>
+                                
+                            </select>
+    
+                            <section *ngIf="leadfld.touched && leadfld.invalid">
+                                <p *ngIf="leadfld.errors.required" class="txt"> Select any option*</p>
+                            </section>
+                    </div>
+                </div>
+                </form>
+            </fieldset>
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <fieldset class="the-fieldset">
+                <legend class="the-legend" style="color:royalblue">
+                    <h5>Address Details</h5>
+                </legend>
+
+                &nbsp;
+                <form #userform="ngForm" (submit)="save(userform.value)">
+                <button class="btn btn-success">Save</button>
+                <div style="float:right ">
+                        <button class="btn btn-danger">Cancel</button>&nbsp;
+                        
+                      </div>
+ <!-- first row -->
+ <div class="row">
+        
+        <div class=" form-group col-md-6">
+                <label style="color:rgb(21, 59, 172)">Address Type* </label>
+                <select name="add" class="form-control" [(ngModel)]="addtype" #addfld="ngModel"
+                    class="form-control" required>
+                    <option value="">--Select Secondary BDM--</option>
+                    <option value="ofc">Office Address</option>
+                    <option value="home">Home Address</option>
+                    <option value="oth">Other</option>
+                    
+                </select>
+        </div>
+    </div>
+
+    <!-- second row -->
+    <div class="row">
+        <div class=" form-group col-md-6">
+            <label style="color:rgb(21, 59, 172)"> Street1* </label>
+            <input [(ngModel)]="st1" name="st1t" #st1fld1="ngModel" class="form-control" required 
+                placeholder="Enter street "
+                [ngClass]="{'is-invalid': st1fld1.touched && st1fld1.invalid ,'is-valid':st1fld1.valid}">
+            <section *ngIf="st1fld1.touched && st1fld1.invalid">
+                <p *ngIf="st1fld1.errors.required" class="txt">Email is Required </p>
+            </section>
+        </div>
+        <div class=" form-group col-md-6">
+                <label style="color:rgb(21, 59, 172)"> Street2* </label>
+                <input [(ngModel)]="st2" name="st2t" #st2fld1="ngModel" class="form-control" required 
+                    placeholder="Enter street"
+                    [ngClass]="{'is-invalid': st2fld1.touched && st2fld1.invalid ,'is-valid':st2fld1.valid}">
+                <section *ngIf="st2fld1.touched && st2fld1.invalid">
+                    <p *ngIf="st2fld1.errors.required" class="txt">Email is Required </p>
+                </section>
+        </div>
+    </div>
+    <!-- third row -->
+    <div class="row">
+        <div class=" form-group col-md-6">
+            <label style="color:rgb(21, 59, 172)"> Country* </label>
+            <input [(ngModel)]="cou" name="couty" #coufld="ngModel" class="form-control" required
+                placeholder="Enter country name"
+                [ngClass]="{'is-invalid': coufld.touched && coufld.invalid ,'is-valid': coufld.valid}">
+            <section *ngIf="coufld.touched && coufld.invalid">
+
+
+                <p *ngIf="coufld.errors.required" class="txt"> This field is required*</p>
+
+            </section>
+        </div>
+        <div class=" form-group col-md-6">
+                <label style="color:rgb(21, 59, 172)">State* </label>
+                <input [(ngModel)]="sta" name="staty" #statfld="ngModel" class="form-control" required
+                    placeholder="Enter state name" pattern="^[6-9]\d{9}$"
+                    [ngClass]="{'is-invalid': statfld.touched && statfld.invalid ,'is-valid':statfld.valid}">
+    
+    
+                <section *ngIf="statfld.touched && statfld.invalid">
+    
+                    <p *ngIf="statfld.errors.required" class="txt"> This field is required*</p>
+                    
+    
+                </section>
+            </div>
+
+    </div>
+    <!-- fourth row -->
+    <div class="row">
+        <div class=" form-group col-md-6">
+            <label style="color:rgb(21, 59, 172)"> Pin Code* </label>
+            <input [(ngModel)]="pinc" name="pinco" #pincfld="ngModel" class="form-control" required  minlength="6"
+                [ngClass]="{'is-invalid': pincfld.touched && pincfld.invalid ,'is-valid': pincfld.valid}">
+            <section *ngIf="pincfld.touched && pincfld.invalid">
+                <p *ngIf="pincfld.errors.required" class="txt"> This field is required*</p>
+                <p *ngIf="pincfld.errors.minlength " class="txt"> Enter Valid pincode*</p>
+            </section>
+        </div>
+        
+    </div>
+</form>
+
+
+            </fieldset>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <br>
+    <p>Customers/Add Customer Type</p>
+    <br>
+    <form #f="ngForm" (ngSubmit)="save(f.value)" name="form">
+    <div class="row">
+    <div class="col-2">
+    <label style="color: blue">Customer Type: </label>
+    </div>
+    <div class="col-4">
+    <input type="text" class="form-control" name="customerType"
+    [(ngModel)]="name" #customerType="ngModel"
+    [ngClass]="{ 'is-invalid': customerType.touched &&customerType.invalid }" required />
+    <div *ngIf="customerType.invalid && customerType.touched">
+    <div *ngIf="customerType.errors.required" style="color: red">This field is required</div>
+    </div>
+    </div>
+    
+    
+    </div><br>
+    <div class="row">
+    <div class="col-2">
+    <label style="color: blue">Amount: </label>
+    </div>
+    <div class="col-3">
+    <select name="cars" class="form-control" name="dropdown1" #dropdown1="ngModel" [(ngModel)]="amo" 
+    [ngClass]="{'is-invalid': dropdown1.touched&& dropdown1.invalid}" required>
+    <option value="Please select">Please select</option>
+    <option value="Greater than">Greater than</option>
+    <option value="Less than">Less than</option>
+    <option value="Equal To">Equal To</option>
+    </select>
+    <div *ngIf="dropdown1.invalid && dropdown1.touched">
+    <div *ngIf="dropdown1.errors.required" style="color: red">This field is required</div>
+    </div>
+    </div>
+    <div class="col-3">
+    <input type="text" class="form-control" name="amount" [(ngModel)]="kus" #amount="ngModel" [ngClass]="{'is-invalid':amount.invalid &&amount.touched}" required />
+    <div *ngIf="amount.invalid && amount.touched">
+    <div *ngIf="amount.errors.required" style="color: red">This field is required</div>
+    </div>
+    </div>
+    <div class="col-3">
+    <select name="cars" class="form-control" name="dropdown2" #dropdown2="ngModel" [(ngModel)]="amnt" 
+    [ngClass]="{'is-invalid':dropdown2.touched&&dropdown2.invalid}" required>
+    <option value="Please select">Please select</option>
+    <option value="Millions">Millions</option>
+    <option value="Billions">Billions</option>
+    <option value="Trillions">Trillions</option>
+    </select>
+    <div *ngIf="dropdown2.invalid && dropdown2.touched">
+    <div *ngIf="dropdown2.errors.required" style="color: red">This field is required</div>
+    </div>
+    </div>
+    </div><br>
+
+    
+
+
+    <!-- <div class="col-md-3 col-sm-4 col-lg-2 "> -->
+        <div class="row">
+        <div class="col-2">
+            <label style="color: blue">Commission Rate(%): </label>
+            </div>
+    <div class="col-4">
+    <input type="text" class="form-control"
+    name="commissionRate" [(ngModel)]="pwd" #commissionRate="ngModel"
+    [ngClass]="{ 'is-invalid': commissionRate.touched && commissionRate.invalid }" required />
+    <div *ngIf="commissionRate.invalid && commissionRate.touched">
+    <div *ngIf="commissionRate.errors.required" style="color: red">This field is required</div>
+    </div>
+    </div>
+</div>
+    <br>
+
+
+
+    <div class="form-group " >
+    <button class="btn btn-info" style="margin-left:800px" (click)="mr()">Cancel</button>
+    <button type="submit" class="btn btn-info" style="margin-left:10px" [disabled]="f.invalid" >Save</button>
+   
+    </div>
+    </form>
+   </div>
+   

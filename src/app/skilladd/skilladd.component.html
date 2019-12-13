@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="container-fluid" style="background-color: #9B9E9E;height: 50px;">
+        <h3>skills/addSkills</h3>
+    </div>
+</div>
+<br>
+
+<div class="container">
+
+<form #addnew="ngForm">
+     
+               
+               
+               
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label style="color: blue">Skill Name</label>
+                    <input type="text" class="form-control" name="skillName" [(ngModel)]="skillname" #sname="ngModel" required >
+                  </div>
+                 
+
+                      <div *ngIf="addnew.invalid && sname.touched">
+                          <div *ngIf="sname.errors.required" style="color: red">This field is required</div>
+
+                  </div>
+
+                 
+                  <div class="form-group col-md-3" style="margin-top:5px;">
+                    <label style="color: blue" >Skill Type</label>
+                   
+
+              <select name="flag"  [(ngModel)]="skilltype" #stype="ngModel" class="sel" required>
+                <option aria-placeholder="please select">select options</option>
+                <option value="true">primary</option>
+                <option value="false">secondary</option>
+
+              </select>
+                  </div>
+                  <div *ngIf="addnew.invalid && stype.touched">
+                      <div *ngIf="stype.errors.required" style="color: red">This field is required</div>
+
+              </div>
+                  <div class="form-group col-">
+                   
+                  <button  class="btn btn-primary" style="margin-top: 40px" (click)="addnewdetails(addnew.value)" [disabled]="addnew.invalid">save</button>
+                  </div>
+                </div>
+               
+               
+         
+             
+   
+
+
+
+</form>
+
+
+
+</div>

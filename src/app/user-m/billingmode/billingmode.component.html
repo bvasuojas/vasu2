@@ -1,0 +1,110 @@
+
+<!-- This is service.html file -->
+
+<div  class="col-12  pt-4">
+
+    <nav class="navbar navbar-light  shadow p-3 mb-5 bg-white rounded">
+           <h4 style="color:black;">BillingModel</h4>
+           <form class="form-inline">
+              <button class=" btn my-2 my-sm-0" mat-fab color="primary" (click)="addroute()" ><i class="material-icons">
+                            add
+                            </i>Add</button>
+            </form>
+          </nav>
+
+
+
+
+<div  class="shadow p-3 mb-5 bg-white rounded" style="margin-top: -25px;"> 
+
+    <div class="navbar  col-4">
+        <input type="text" class="form-control" placeholder="Search" aria-label="Username"
+            aria-describedby="basic-addon1" [(ngModel)]="term">
+    </div>
+
+
+<table class="table  table-sm  table-bordered">
+    <thead >
+        <tr style="background-color: #48466d; color: whitesmoke; ">
+            <th class="text-center">Billing Model</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of tabledata | filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+            <td class="text-center">{{c.billingModel}}</td>
+            <td class="text-center">
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"
+                    (click)="update(c)">
+                    <i class="material-icons">
+                        create
+                    </i>
+                </button>
+            </td>
+            <td class="text-center"> <button title="delete" type="button" class="btn btn-info btn-sm" (click)="delete(c)"><i
+                        class="material-icons">
+                        delete
+                    </i></button></td>
+        </tr>
+    </tbody>
+</table>
+
+<pagination-controls (pageChange)="p = $event" style="float:right"></pagination-controls>
+
+
+<div>
+    <button class="btn btn-primary   d-flex justify-content-center" (click)="add2()">add</button>
+
+    <form name="form" (ngSubmit)="add3(f.value)" #f="ngForm">
+        <div class="row" *ngIf="stat">
+            <div class="col-8">
+                <nav class="navbar bg-light" style="height: 50px;">
+                    <input type="text" class="form-control" name="billingModel" [(ngModel)]="name" #firstName="ngModel">
+                </nav>
+            </div>
+            <section class="col-4"><button class="btn btn-primary" type="submit">Post</button></section>
+        </div>
+    </form>
+   
+</div>
+
+
+
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="bg-light">
+                        <label>Billing Model:</label>
+                        <input type="text" name="billingModel" [(ngModel)]="dataa" #firstName="ngModel">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        (click)="update1(dataa)">Update</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+</div>

@@ -1,0 +1,15 @@
+.sel{
+    position: relative;
+    display: block;
+    width: 15em;
+    height: 2em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+    padding-bottom:10px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #0d599c;
+    border-color: #2e6da4;
+    }

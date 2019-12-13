@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Roles/Add Roles</span>
+</nav><br>
+
+<form class="form-inline" name="form" (ngSubmit)="f.form.valid && addroute(f.value)" #f="ngForm">
+        <section class="row">
+                <main class="col-6">
+                        <div class="form-group mx-auto col-7">
+
+                                <label>Designation:</label>
+                                <input placeholder="enter" type="text" class="form-control" name="designation"
+                                        [(ngModel)]="addvalue" #addval="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && addval.invalid }" required />
+
+                        </div>
+                </main>
+                <main class="col-6">
+                        <div *ngIf="f.submitted && addval.invalid">
+
+                                <p *ngIf="addval.errors.required">Please enter designation</p>
+
+                        </div>
+                </main>
+        </section>
+        <section class="row">
+                <div class="form-group col-12">
+                                <main class="col-6">
+                        <button type="submit" class="btn btn-info "><b>+</b>add</button>
+                </main> <main class="col-6">
+                        <button class="btn btn-danger " (click)="cancel()"><b></b>cancel</button> </main>
+                </div>
+        </section>
+</form>

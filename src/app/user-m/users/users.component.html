@@ -1,0 +1,260 @@
+
+<div  class="col-12  pt-4">
+    <nav class="navbar navbar-light shadow p-3 mb-5 bg-white rounded ">
+          <h3 style="color:black;"> Users </h3>
+            <form class="form-inline">
+                    <button class=" btn my-2 my-sm-0" mat-fab color="primary" [routerLink]="['../useradd']" ><i class="material-icons">
+                                  add
+                                  </i>Add</button>
+                  </form>
+          </nav>
+
+
+
+
+<!-- <h1 style="color:black; font-size: 20px"  class="fas fa-users">Users</h1> -->
+
+
+<div class="shadow p-3 mb-5 bg-white rounded"  style="margin-top: -25px;">
+<div class="row user">
+<div class="col-lg-2 col-sm-12">
+<label>Search By Category</label>
+<select class="form-control">
+<option>--Select--</option>
+<option>Candidate Name</option>
+<option>Recruiter Name</option>
+<option>Requirement</option>
+<option>Role</option>
+</select>
+</div>
+<div class="col-lg-2 col-sm-12">
+<br>
+<input placeholder="Search Here" class="form-control my-1">
+</div>
+<div class="col-lg-1 col-sm-12">
+<label>Sort By</label>
+<select class="form-control">
+<option></option>
+<option>Candidate Name</option>
+<option>Recruiter Name</option>
+<option>Requirement</option>
+<option>Role</option>
+<option>Date</option>
+</select>
+</div>
+<div class="col-lg-1 col-sm-12">
+<label>Order By</label>
+<select class="form-control">
+<option></option>
+<option>Ascending</option>
+<option>Descending</option>
+
+</select>
+</div>
+<div class="col-lg .
+ -2 col-sm-12">
+<br>
+<button class="btn btn-primary my-1 m-1">Search</button>
+<button class="btn btn-danger my-1 m-1">Reset</button>
+</div>
+<div>
+<br>
+<label>items per page</label>
+<select class="sel m-2" [(ngModel)]="itemsp">
+<option>4</option>
+<option>10</option>
+<option>15</option>
+<option>20</option>
+<option>25</option>
+</select>
+</div>
+</div>
+
+<br>
+
+
+<div class="table-responsive">
+<table class="table table-bordered table-sm ">
+<thead>
+<tr  style="background-color: #48466d; color: whitesmoke; ">
+    <th>User Name</th>
+    <th>Name</th>
+    <th>Mobile Number</th>
+    <th>Extension Number</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Reporting Authentication</th>
+    <th>Status</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let d of usersList| paginate: { itemsPerPage: itemsp, currentPage: p}">
+    <td>{{d.name}}</td>
+    <td>{{d.firstName}}</td>
+    <td>{{d.contactNumber}}</td>
+    <td>{{d.extension}}</td>
+    <td>{{d.email}}</td>
+    <td>{{d.role}}</td>
+    <td>{{d.reportingId.firstName}}{{d.reportingId.lastName}}</td>
+    <td>{{d.status}}</td>
+    <td colspan="2" >
+
+        
+        <button class=" btn  btn-sm"  mat-button color="primary" data-toggle="modal" data-target="#update" (click)="getid(d.id)">  <i class="material-icons">
+                edit
+                </i></button>
+        <button class="  btn btn-sm" mat-button color="warn" > <i class="material-icons">
+                delete
+                </i> </button>
+         
+    </td>
+
+
+
+    <div class="modal fade bd-example-modal-lg" id="update" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Users/Add User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #updateform="ngForm" (ngSubmit)="update(updateform.value)">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>FirstName*</label><br>
+                                    <input placeholder="Enter First Name" [(ngModel)]="d.firstName"
+                                        name="firstName" class="form-control">
+                                </div>
+                                <div class="col-4">
+                                    <label>LastName*</label><br>
+                                    <input placeholder="Enter Last Name" [(ngModel)]="d.lastName"
+                                        name="lastName" class="form-control">
+                                </div>
+                                <div class="col-4">
+                                    <label>Email*</label><br>
+                                    <input placeholder="Enter Email" [(ngModel)]="d.email" name="email"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Mobile Number*</label><br>
+                                    <input placeholder="Enter Contact Number"
+                                        [(ngModel)]="d.contactNumber" name="contactNumber"
+                                        class="form-control">
+                                </div>
+                                <div class="col-4">
+                                    <label>Extension Number*</label><br>
+                                    <input placeholder="Enter Contact Number" [(ngModel)]="d.extension"
+                                        name="extension" class="form-control">
+                                </div>
+                                <div class="col-4">
+                                    <label>Role*</label><br>
+                                    <select class="form-control" [(ngModel)]="d.role" name="role">
+                                        <option>Select</option>
+                                        <option>Admin</option>
+                                        <option>Lead</option>
+                                        <option>Recuter</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>DOJ</label><br>
+                                    <input type="date" name="bday" max="3000-12-31" min="1000-01-01"
+                                        class="form-control" [(ngModel)]="d.doj" name="doj">
+                                </div>
+                                <div class="col-4">
+                                    <label>Status</label><br>
+                                    <select class="form-control" [(ngModel)]="d.status" name="status">
+                                        <option>Choose Role</option>
+                                        <option>Active</option>
+                                        <option>Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    <label>Reporting Manager</label><br>
+                                    <select class="form-control" [(ngModel)]="d.reportingId"
+                                        name="reportingId">
+                                        <option>Select</option>
+                                        <option>{{d.reportingId.firstName}} {{d.reportingId.lastName}}
+                                        </option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <hr>
+                            Salary Details
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Salary*</label><br>
+                                    <input placeholder="Basic Salary" class="form-control"
+                                        [(ngModel)]="d.salary" name="salary">
+                                </div>
+                                <div class="col-4">
+                                    <label>Variable pay*</label><br>
+                                    <input placeholder="Enter your answer" class="form-control"
+                                        [(ngModel)]="d.variablepay" name="variablepay">
+                                </div>
+                                <div class="col-4">
+                                    <label>CTC*</label><br>
+                                    <input placeholder="total CTC" class="form-control"
+                                        [(ngModel)]="d.ctc" name="ctc">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Target(min)*</label><br>
+                                    <input placeholder="min target" class="form-control"
+                                        [(ngModel)]="d.mintarget" name="mintarget">
+                                </div>
+                                <div class="col-4">
+                                    <label>Target(max)*</label><br>
+                                    <input placeholder="max target" class="form-control"
+                                        [(ngModel)]="d.maxtarget" name="maxtarget">
+                                </div>
+                                <div class="col-4">
+                                    <label>Target Duration*</label><br>
+                                    <select class="form-control" [(ngModel)]="d.targetduration"
+                                        name="targetduration">
+                                        <option>Select</option>
+                                        <option>Q1</option>
+                                        <option>Q2</option>
+                                        <option>Q3</option>
+                                        <option>Q4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row m-5">
+                            <button type="button" class="btn btn-danger"
+                                data-dismiss="modal">Cancel</button>
+                            <button class="ml-auto btn btn-primary">update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</tr>
+</tbody>
+</table>
+<pagination-controls (pageChange)="p = $event" style="float:right"></pagination-controls>
+
+</div>
+
+
+
+</div>
+
+
+</div>

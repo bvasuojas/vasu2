@@ -1,0 +1,25 @@
+.tab {
+  float: left;
+  background-color:#F8F8FF;
+  width: 100%;
+
+  padding-top: 25px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: white;
+  padding: 10px 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+

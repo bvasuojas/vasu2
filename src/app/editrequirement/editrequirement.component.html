@@ -1,0 +1,348 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Edit Requirement</span>
+  
+  </nav>
+  <br>
+  <div class="container-fluid">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
+    <div class="row">
+            
+           <div class="form-group col-md-6">
+            <fieldset class="the-fieldset">
+                <legend class="the-legend" style="color:#8A2BE2; font-size:18px">
+                    <h5>Edit Requirement</h5>
+                </legend>
+                <br>
+                <!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> -->
+                    <div class="form-group">
+                        <label style="color:#0000A0;"><h6>Customer Name*</h6></label>
+                        <input type="text" formControlName="customername" class="form-control" 
+                        [ngClass]="{ 'is-invalid': submitted && f.customername.errors }" />
+                        <div *ngIf="submitted && f.customername.errors" class="invalid-feedback">
+                            <div *ngIf="f.customername.errors.required">Customer Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:#0000A0;"><h6>Customer Spoc*</h6></label>
+                        <select name="title" formControlName="customerspoc" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.customerspoc.errors }" >
+                         <option value=""></option>
+                         <option value="Mr">suzuki</option>
+                         <option value="Mrs">simeno</option>
+                         <option value="Miss">suzukicontact</option>
+                     </select>
+                        <div *ngIf="submitted && f.customerspoc.errors" class="invalid-feedback">
+                            <div *ngIf="f.customerspoc.errors.required">This field is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:#0000A0;"><h6>Requirement Name*</h6></label>
+                        <input type="text" formControlName="requirementname" class="form-control" 
+                        [ngClass]="{ 'is-invalid': submitted && f.requirementname.errors }" />
+                        <div *ngIf="submitted && f.requirementname.errors" class="invalid-feedback" placeholder="Enter Requirement Name">
+                            <div *ngIf="f.requirementname.errors.required">name is required</div>
+                        </div>
+                    </div>
+                    <!-- <div class="row ml-1">
+                        <div class="form-group col-md-2">
+                           <label style="color:#0000A0;"><h6>Roles*</h6></label>
+                           <select name="title" formControlName="roles" class="form-control" 
+                           [ngClass]="{ 'is-invalid': submitted && f.roles.errors }" >
+                           <option value="">select</option>
+                           <option value="Mr">suzuki</option>
+                           <option value="Mrs">simeno</option>
+                           <option value="Miss">suzukicontact</option>
+                       </select>
+                           <div *ngIf="submitted && f.roles.errors" class="invalid-feedback" >
+                               <div *ngIf="f.roles.errors.required">This field is required</div>
+                           </div>
+                      </div>
+                      <div class="form-group col-md-4"></div>
+                     <div class="form-group col-md-2">
+                           <label style="color:#0000A0;"><h6>Skills*</h6></label>
+                           <select name="title" formControlName="skills" class="form-control" 
+                           [ngClass]="{ 'is-invalid': submitted && f.skills.errors }" >
+                           <option value="">select</option>
+                           <option value="Mr">suzuki</option>
+                           <option value="Mrs">simeno</option>
+                           <option value="Miss">suzukicontact</option>
+                       </select>
+                           <div *ngIf="submitted && f.skills.errors" class="invalid-feedback" >
+                               <div *ngIf="f.skills.errors.required">Location is required</div>
+                           </div>
+                      </div>
+                  </div> 
+                  <div class="row ml-1">
+                        <div class="form-group col-md-2">
+                           <label style="color:#0000A0;"><h6>Qualifications*</h6></label>
+                           <select name="title" formControlName="qualifications" class="form-control" 
+                           [ngClass]="{ 'is-invalid': submitted && f.qualifications.errors }" >
+                           <option value="">select</option>
+                           <option value="Mr">suzuki</option>
+                           <option value="Mrs">simeno</option>
+                           <option value="Miss">suzukicontact</option>
+                       </select>
+                           <div *ngIf="submitted && f.qualifications.errors" class="invalid-feedback" >
+                               <div *ngIf="f.qualifications.errors.required">This field is required</div>
+                           </div>
+                      </div>
+                      <div class="form-group col-md-4"></div>
+                     <div class="form-group col-md-2">
+                           <label style="color:#0000A0;"><h6>Certificates*</h6></label>
+                           <select name="title" formControlName="certificates" class="form-control" 
+                           [ngClass]="{ 'is-invalid': submitted && f.certificates.errors }" >
+                           <option value="">select</option>
+                           <option value="Mr">suzuki</option>
+                           <option value="Mrs">simeno</option>
+                           <option value="Miss">suzukicontact</option>
+                       </select>
+                           <div *ngIf="submitted && f.certificates.errors" class="invalid-feedback" >
+                               <div *ngIf="f.certificates.errors.required">certificates is required</div>
+                           </div>
+                      </div>
+                  </div>  -->
+                  <div class="row ml-2">
+                        <div class="form-group col-md-3" >
+                                <label style="color:#0000A0;"><h6>Roles*</h6></label>
+                        <ng-multiselect-dropdown  formControlName="roles" 
+                          [placeholder]="select"
+                          [data]="dropdownList1"
+                          [(ngModel)]="selectedItems1"
+                          [settings]="dropdownSettings1"
+                          (onSelect)="onItemSelect($event)"
+                          (onSelectAll)="onSelectAll($event)"
+                          >
+                        
+                        </ng-multiselect-dropdown>
+                        </div>
+                        
+
+                        <div class="form-group col-md-2"></div>
+
+
+
+                        <div class="form-group col-md-3" >
+                         <label style="color:#0000A0;"><h6>Skills*</h6></label>
+                    <ng-multiselect-dropdown  formControlName="skills" 
+                    
+                    
+                      [placeholder]="select"
+                      [data]="dropdownList2"
+                      [(ngModel)]="selectedItems2"
+                      [settings]="dropdownSettings2"
+                      (onSelect)="onItemSelect($event)"
+                      (onSelectAll)="onSelectAll($event)"
+                      >
+                    
+                    </ng-multiselect-dropdown>
+                    </div>
+                  </div> 
+                  <div class="row ml-2">
+                        <div class="form-group col-md-3" >
+                                <label style="color:#0000A0;"><h6>Qualifications*</h6></label>
+                           <ng-multiselect-dropdown  formControlName="qualifications" 
+                           
+                           
+                             [placeholder]="select3"
+                             [data]="dropdownList3"
+                             [(ngModel)]="selectedItems3"
+                             [settings]="dropdownSettings3"
+                             (onSelect)="onItemSelect($event)"
+                             (onSelectAll)="onSelectAll($event)"
+                             >
+                           
+                           </ng-multiselect-dropdown>
+                           </div>
+                           <div class="form-group col-md-2"></div>
+                           <div class="form-group col-md-3" >
+                                <label style="color:#0000A0;"><h6>Certificates*</h6></label>
+                           <ng-multiselect-dropdown  formControlName="certificates" 
+                           
+                           
+                             [placeholder]="select"
+                             [data]="dropdownList"
+                             [(ngModel)]="selectedItems"
+                             [settings]="dropdownSettings"
+                             (onSelect)="onItemSelect($event)"
+                             (onSelectAll)="onSelectAll($event)"
+                             >
+                           
+                           </ng-multiselect-dropdown>
+                           </div>
+                       
+                  </div> 
+
+
+
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                        <label style="color:#0000A0;"><h6>Requirement Opendate*</h6></label>
+                        <input type="date" formControlName="requirementopendate" class="form-control" 
+                        [ngClass]="{ 'is-invalid': submitted && f.requirementopendate.errors }" />
+                        <div *ngIf="submitted && f.requirementopendate.errors" class="invalid-feedback" >
+                            <div *ngIf="f.requirementopendate.errors.required">date is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label style="color:#0000A0;"><h6>Requirement Enddate*</h6></label>
+                        <input type="date" formControlName="requirementendate" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.requirementendate.errors }" />
+                        <div *ngIf="submitted && f.requirementendate.errors" class="invalid-feedback" >
+                            <div *ngIf="f.requirementendate.errors.required">date is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ml-1">
+                    <div class="form-group col-md-6">
+                        <label style="color:#0000A0;"><h6>Skill Type*</h6></label><br>
+                        <div class="form-group ml-2">
+                            <label class="form-check-label" for="radio1">
+                                 <input type="radio" formControlName="skilltype" class="form-check-input" id="radio1" name="skilltype"
+                         [ngClass]="{ 'is-invalid': submitted && f.skilltype.errors }"  value="option1"/>Option 1
+                        </label> &nbsp;
+                        <input type="radio" formControlName="skilltype" class="form-check-input" id="radio2" name="skilltype"
+                        [ngClass]="{ 'is-invalid': submitted && f.skilltype.errors }"  value="option2"/>Option 2
+                        <div *ngIf="submitted && f.skilltype.errors" class="invalid-feedback" >
+                            <div *ngIf="f.skilltype.errors.required">skill is required</div>
+                        </div>
+                   </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label style="color:#0000A0;" ><h6>Relevant Experience*</h6></label>
+                      <select name="title" formControlName="relevantexperience" class="form-control" 
+                      [ngClass]="{ 'is-invalid': submitted && f.relevantexperience.errors }" >
+                      <option value="">--Select--</option>
+                      <option value="Mr">0</option>
+                      <option value="Mrs">1</option>
+                      <option value="Miss">2</option>
+                      <option value="Ms">3</option>
+                      <option value="Ms">4</option>
+                      <option value="Ms">5</option>
+                      <option value="Ms">6</option>
+                      <option value="Ms">7</option>
+                      <option value="Ms">8</option>
+                      <option value="Ms">9</option>
+                      <option value="Ms">10</option>
+                      <option value="Ms">11</option>
+                      <option value="Ms">12</option>
+                      <option value="Ms">13</option>
+                      <option value="Ms">14</option>
+                      <option value="Ms">15</option>
+                      <option value="Ms">16</option>
+                  </select>
+                         <div *ngIf="submitted && f.relevantexperience.errors" class="invalid-feedback" >
+                             <div *ngIf="f.relevantexperience.errors.required">Experience is required</div>
+                         </div>
+                 </div>  
+                </div>
+                <div class="form-group">
+                    <label style="color:#0000A0;"><h6>Number Of Positions*</h6></label>
+                      <input type="text" formControlName="positions" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.positions.errors }" />
+                         <div *ngIf="submitted && f.positions.errors" class="invalid-feedback" >
+                             <div *ngIf="f.positions.errors.required">year is required</div>
+                         </div>
+                </div>
+           </fieldset>
+       </div>
+       <div class="form-group col-md-6">
+        <fieldset class="the-fieldset">
+            <legend class="the-legend" style="color:#8A2BE2; font-size:18px">
+                <h5>Edit Additional Information</h5>
+            </legend>
+            <div class="form-group">
+                <div style="float:right">
+                        <button class="btn btn-success">Save</button>
+                </div>
+            </div>
+            <div class="form-group ml-3">
+                <label style="color:#0000A0;"><h6>Type Of Requirement*</h6></label>
+                <select name="title" formControlName="requirementtype" class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f.requirementtype.errors }" >
+                <option value=""></option>
+                <option value="Mr">contract to hire</option>
+                <option value="Mrs">permanent</option>
+                <option value="Miss">contract</option>
+            </select>
+                <div *ngIf="submitted && f.requirementtype.errors" class="invalid-feedback">
+                    <div *ngIf="f.requirementtype.errors.required">This field is required</div>
+                </div>
+            </div>
+            <div class="row ml-1">
+                <div class="form-group col-md-6">
+                   <label style="color:#0000A0;"><h6>Min Budget*</h6></label>
+                   <input type="text" formControlName="minbudget" class="form-control" 
+                   [ngClass]="{ 'is-invalid': submitted && f.minbudget.errors }" />
+                   <div *ngIf="submitted && f.minbudget.errors" class="invalid-feedback" >
+                       <div *ngIf="f.minbudget.errors.required">This field is required</div>
+                   </div>
+              </div>
+             <div class="form-group col-md-6">
+                   <label style="color:#0000A0;"><h6>Max Budget*</h6></label>
+                   <input type="text" formControlName="maxbudget" class="form-control" 
+                   [ngClass]="{ 'is-invalid': submitted && f.maxbudget.errors }" />
+                   <div *ngIf="submitted && f.maxbudget.errors" class="invalid-feedback" >
+                       <div *ngIf="f.maxbudget.errors.required">This field is required</div>
+                   </div>
+              </div>
+          </div> 
+      <div class="row ml-1">
+        <div class="form-group col-md-4">
+           <label style="color:#0000A0;"><h6>Status*</h6></label>
+           <select name="title" formControlName="status" class="form-control" 
+           [ngClass]="{ 'is-invalid': submitted && f.status.errors }" >
+           <option value=""></option>
+           <option value="Mr">open</option>
+           <option value="Mrs">hold</option>
+           <option value="Miss">closed</option>
+       </select>
+           <div *ngIf="submitted && f.status.errors" class="invalid-feedback" >
+               <div *ngIf="f.status.errors.required">status is required</div>
+           </div>
+      </div>
+     <div class="form-group col-md-3">
+           <label style="color:#0000A0;"><h6>Job Location*</h6></label>
+           <select name="title" formControlName="joblocation" class="form-control" 
+           [ngClass]="{ 'is-invalid': submitted && f.joblocation.errors }">
+           <option value="Mr">open</option>
+            <option value="Mrs">hold</option>
+            <option value="Miss">closed</option>
+                             </select>
+           <div *ngIf="submitted && f.joblocation.errors" class="invalid-feedback" >
+               <div *ngIf="f.joblocation.errors.required">Location is required</div>
+           </div>
+      </div>
+      <div class="form-group col-md-1"></div>
+      <div class="form-group col-md-4">
+        <label style="color:#0000A0;"><h6>Notice Period*</h6></label>
+        <input type="text" formControlName="noticeperiod" class="form-control" 
+        [ngClass]="{ 'is-invalid': submitted && f.noticeperiod.errors }" />
+        <div *ngIf="submitted && f.noticeperiod.errors" class="invalid-feedback" >
+            <div *ngIf="f.noticeperiod.errors.required">Noticeperiod is required</div>
+        </div>
+   </div>
+  </div>
+  <div class="form-group ml-3">
+    <label  style="color:#0000A0;"><h6>Requirement Description*</h6></label>
+    <textarea type="text" formControlName="reqdescription" class="form-control" 
+       [ngClass]="{ 'is-invalid': submitted && f.reqdescription.errors }" >
+    </textarea>
+       <div *ngIf="submitted && f.reqdescription.errors" class="invalid-feedback" >
+           <div *ngIf="f.reqdescription.errors.required">description is required</div>
+       </div>
+</div>
+<div class="form-group ml-3">
+    <label  style="color:#0000A0;"><h6>Job Description*</h6></label>
+    <textarea type="text" formControlName="jobdescription" class="form-control" 
+       [ngClass]="{ 'is-invalid': submitted && f.jobdescription.errors }" >
+    </textarea>
+       <div *ngIf="submitted && f.jobdescription.errors" class="invalid-feedback" >
+           <div *ngIf="f.jobdescription.errors.required">description is required</div>
+       </div>
+</div>
+        </fieldset>
+       </div>
+    </div>
+ </form>
+</div>
+  
